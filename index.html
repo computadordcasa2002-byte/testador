@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Player Simples</title>
+
+<style>
+    body{
+        background:#1e1e1e;
+        color:white;
+        font-family:Arial;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        height:100vh;
+        flex-direction:column;
+        gap:20px;
+    }
+
+    button{
+        padding:15px 30px;
+        font-size:18px;
+        border:none;
+        border-radius:10px;
+        cursor:pointer;
+        background:#4CAF50;
+        color:white;
+        transition:0.3s;
+    }
+
+    button:hover{
+        transform:scale(1.05);
+    }
+</style>
+</head>
+<body>
+
+<h1>Player de Música</h1>
+
+<button onclick="tocarMusica(1)">
+    Tocar Música 1
+</button>
+
+<button onclick="tocarMusica(2)">
+    Tocar Música 2
+</button>
+
+<audio id="musica1" src="musica1.mp3"></audio>
+<audio id="musica2" src="musica2.mp3"></audio>
+
+<script>
+    const musica1 = document.getElementById("musica1");
+    const musica2 = document.getElementById("musica2");
+
+    function tocarMusica(numero){
+
+        // Para as duas músicas
+        musica1.pause();
+        musica2.pause();
+
+        // Reinicia
+        musica1.currentTime = 0;
+        musica2.currentTime = 0;
+
+        // Toca a escolhida
+        if(numero === 1){
+            musica1.play();
+        } else {
+            musica2.play();
+        }
+    }
+</script>
+
+</body>
+</html>
